@@ -39,6 +39,8 @@ public class BlurrableUILabel: UILabel {
             }
         }
         
+        private static let ciContext = CIContext()
+        
         override func draw(in ctx: CGContext) {
             super.draw(in: ctx)
             
@@ -61,7 +63,7 @@ public class BlurrableUILabel: UILabel {
                 blurFilter.setValue(blurRadius, forKey: "inputRadius")
                 
                 let outputImage = blurFilter.outputImage!
-                let cgimg = CIContext().createCGImage(outputImage, from: outputImage.extent)!
+                let cgimg = BlurrableLayer.ciContext.createCGImage(outputImage, from: outputImage.extent)!
                 blurredLayer.inputImage = cgimg
             } else {
                 blurredLayer.inputImage = nil
