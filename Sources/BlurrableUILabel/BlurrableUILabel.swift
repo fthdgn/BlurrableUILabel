@@ -34,8 +34,10 @@ public class BlurrableUILabel: UILabel {
         
         var blurRadius: Double = 0 {
             didSet {
-                setNeedsLayout()
-                setNeedsDisplay()
+                if oldValue != blurRadius {
+                    setNeedsLayout()
+                    setNeedsDisplay()
+                }
             }
         }
         
