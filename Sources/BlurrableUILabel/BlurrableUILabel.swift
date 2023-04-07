@@ -2,7 +2,7 @@ import Foundation
 import UIKit
 
 @IBDesignable
-public class BlurrableUILabel: UILabel {
+open class BlurrableUILabel: UILabel {
     @IBInspectable
     public var blurRadius: Double = 0 {
         didSet {
